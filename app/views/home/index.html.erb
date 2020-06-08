@@ -1,0 +1,31 @@
+<main role="main">
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <% Produto.all.each do |p| %>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <%= image_tag (p.imagem) %>
+                    
+                        <div class="card-body">
+                            <p class="card-text"></p>
+                            <%= content_tag(:p, p.nome, :class => 'card-body') %>
+                            <%= content_tag(:h3, "R$ "+p.preco.to_s, :class => 'preco') %>
+                            <%= content_tag(:h6, p.parcelas.to_s+"x de R$ "+(p.preco/p.parcelas).to_s, :class => 'parcelas') %>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                <%= link_to "Visualizar", p, :class => 'btn btn-sm btn-outline-secondary' %>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</main>

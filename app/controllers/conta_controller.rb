@@ -1,0 +1,2 @@
+class ContaController < ApplicationController
+end
